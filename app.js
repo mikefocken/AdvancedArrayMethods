@@ -225,7 +225,7 @@ function filterServingCountEven(arrayOfDishes){
     return filteredDishess;
 }
 console.log(filterServingCountEven(dishes));
-*/
+
 
 //6. Create a function that will return dishes whose ingredients array INCLUDES "chickpea".
 //Hint: You do not want to check the array's indexes to find out what the array INCLUDES.
@@ -238,21 +238,58 @@ function specificItemRecall(arrayOfDishes,item){
         return filteredDishess;  
     }
 
-console.log(specificItemRecall(dishes,"Chickpea")); 
+console.log(specificItemRecall(dishes,"chickpea")); 
+
 
 //7. Create a function that will prompt the user to type the name of one ingredient. Then use a filter to find all the dishes whose ingredients array INCLUDES that ingredient. Return the new array.
 //Filter
+
+function getUserInput(){
+    return prompt("Please select one ingredient from the following list; beef, ginger, tomato, chickpea, parsley, cheese,cabbage,sugar,flour,corn");
+}
+
+let userSelect=getUserInput();
+
+function userSelectItem(arrayOfDishes,userSelect){
+    let filteredDishess=arrayOfDishes.filter(function (dish){
+        return dish.ingredients.includes(userSelect);
+    });
+        return filteredDishess;  
+    }
+
+console.log(userSelectItem(dishes,userSelect)); 
 
 
 
 //8a. Create a function that will return an array of the string cuisine types. Ie, ["Italian", "Italian", "Mexican", ...]
 //Map
 
+function stringCuisineTypes(arrayOfDishes) {
+    let cuisines = arrayOfDishes.map(function (dish) {
+        return `"${dish.cuisine}"`;
+    });
+
+    return cuisines;
+}
+
+let cuisineArray = stringCuisineTypes(dishes);
+
+console.log(cuisineArray);
+*/
+
+
+
 
 
 //9. Create a function that will return an array of strings, with the cuisine type appended to the start of the dish's name. Ie, ["Italian Pizza", "Italian Spaghetti", ...]
 //Map 
-
+function dishNameCuisineName(arrayOfDishes){
+    let cuisineStyle=arrayOfDishes.map(function(dishes){
+        return `${dish.cuisine} ${dish.name}`;
+    })
+    return cuisineStyle;
+}
+console.log(dishNameCuisineName(dishes));
 
 
 //10. Create a function that will use advanced array methods on the 'dishes' array and return the result ["Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"]
