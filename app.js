@@ -275,8 +275,6 @@ function stringCuisineTypes(arrayOfDishes) {
 let cuisineArray = stringCuisineTypes(dishes);
 
 console.log(cuisineArray);
-*/
-
 
 
 
@@ -284,18 +282,32 @@ console.log(cuisineArray);
 //9. Create a function that will return an array of strings, with the cuisine type appended to the start of the dish's name. Ie, ["Italian Pizza", "Italian Spaghetti", ...]
 //Map 
 function dishNameCuisineName(arrayOfDishes){
-    let cuisineStyle=arrayOfDishes.map(function(dishes){
+    let cuisineStyle=arrayOfDishes.map(function(dish){
         return `${dish.cuisine} ${dish.name}`;
     })
     return cuisineStyle;
 }
 console.log(dishNameCuisineName(dishes));
-
+*/
 
 //10. Create a function that will use advanced array methods on the 'dishes' array and return the result ["Vegetarian Lasagna", "Vegetarian Falafel", "Vegetarian Chili"]
 
+function filterVegetarianName(arrayOfDishes) {
+    let vegetarianFood = arrayOfDishes.filter(function(dish) {
+        return dish.cuisine.toLowerCase() === "vegetarian";
+    });
+
+    return vegetarianFood.map(function(dish) {
+        return `${dish.cuisine} ${dish.name}`;
+    });
+}
 
 
+console.log(filterVegetarianName(dishes));
+
+    
+
+   
 
 
 //BONUS
